@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nishita | B.Sc. Computer Science Student</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #263238;
+            line-height: 1.6;
+        }
+
+        /* ---------- NAVBAR ---------- */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #123b73;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #20c9d8;
+        }
+
+        /* ---------- HERO ---------- */
+
+        #hero {
+            min-height: 100vh;
+            padding: 120px 20px 70px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+
+            background: linear-gradient(
+                135deg,
+                #08bfc9,
+                #123b73
+            );
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        #hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        #hero .description {
+            max-width: 650px;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-buttons a {
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #123b73;
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero-buttons a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+        }
+
+        /* ---------- COMMON SECTION ---------- */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 90px 25px 50px;
+        }
+
+        .section-card {
+            background: white;
+            padding: 45px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            text-align: center;
+            color: #123b73;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        /* ---------- ABOUT ---------- */
+
+        .about-text {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        /* ---------- SKILLS ---------- */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 22px;
+            background: #eef8fb;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #123b73;
+            border: 1px solid #d8eef2;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+        }
+
+        /* ---------- PROJECTS ---------- */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            padding: 25px;
+            background: #f1f7fc;
+            border-radius: 14px;
+            border-left: 5px solid #08bfc9;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: #123b73;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #555;
+        }
+
+        /* ---------- EDUCATION ---------- */
+
+        .education-item {
+            padding: 22px;
+            background: #f1f7fc;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            border-left: 5px solid #123b73;
+        }
+
+        .education-item h3 {
+            color: #123b73;
+            margin-bottom: 5px;
+        }
+
+        /* ---------- CERTIFICATES ---------- */
+
+        .certificate-box {
+            text-align: center;
+            padding: 25px;
+            background: #f1f7fc;
+            border-radius: 12px;
+        }
+
+        .certificate-box p {
+            color: #666;
+        }
+
+        /* ---------- CONTACT ---------- */
+
+        .contact-form {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ccd6df;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #08bfc9;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
+            background: #08bfc9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #079ca5;
+        }
+
+        /* ---------- SOCIAL ---------- */
+
+        .social-buttons {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            margin: 8px;
+            padding: 11px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .github {
+            background: #24292e;
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+
+        .social-buttons a:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background: #123b73;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        /* ---------- ANIMATION ---------- */
+
+        .fade-in {
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            #hero h1 {
+                font-size: 2.8rem;
+            }
+
+            #hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav>
+
+            <div class="logo">
+                Nishita
+            </div>
+
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+
+    <section id="hero" class="fade-in">
+
+        <h1>Nishita</h1>
+
+        <p class="subtitle">
+            B.Sc. Computer Science Student
+        </p>
+
+        <p class="description">
+            Welcome to my professional portfolio. I am passionate about
+            programming, problem-solving, technology and building useful
+            projects.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn-primary">
+                View Projects
+            </a>
+
+            <a href="#contact" class="btn-secondary">
+                Contact Me
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="section-card">
+
+            <h2 class="section-title">
+                About Me
+            </h2>
+
+            <p class="about-text">
+                I am a passionate B.Sc. Computer Science student with a
+                strong interest in programming, problem-solving and
+                technology. I enjoy learning new technologies and building
+                projects that combine creativity with technical skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="section-card">
+
+            <h2 class="section-title">
+                Skills
+            </h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    HTML & CSS
+                </div>
+
+                <div class="skill-card">
+                    JavaScript
+                </div>
+
+                <div class="skill-card">
+                    Python
+                </div>
+
+                <div class="skill-card">
+                    C++
+                </div>
+
+                <div class="skill-card">
+                    Data Structures
+                </div>
+
+                <div class="skill-card">
+                    Algorithms
+                </div>
+
+                <div class="skill-card">
+                    Database Management
+                </div>
+
+                <div class="skill-card">
+                    Git & GitHub
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="section-card">
+
+            <h2 class="section-title">
+                Projects
+            </h2>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+
+                    <h3>
+                        Portfolio Website
+                    </h3>
+
+                    <p>
+                        A responsive personal portfolio website created
+                        using HTML and CSS to showcase my skills,
+                        education and projects.
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>
+                        Library Management System
+                    </h3>
+
+                    <p>
+                        A C++ based project designed to manage library
+                        books, members and transactions.
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>
+                        Data Visualization Tool
+                    </h3>
+
+                    <p>
+                        A Python-based project for visualizing datasets
+                        using data visualization libraries.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+        <div class="section-card">
+
+            <h2 class="section-title">
+                Education
+            </h2>
+
+            <div class="education-item">
+
+                <h3>
+                    B.Sc. Computer Science
+                </h3>
+
+                <p>
+                    Kalyani University — 2026 to 2030
+                </p>
+
+            </div>
+
+
+            <div class="education-item">
+
+                <h3>
+                    Higher Secondary
+                </h3>
+
+                <p>
+                    Chakdaha Purbachal Balika Vidyapith School —
+                    Higher Secondary Pass 2026
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATES -->
+
+    <section id="certificates">
+
+        <div class="section-card">
+
+            <h2 class="section-title">
+                Certificates
+            </h2>
+
+            <div class="certificate-box">
+
+                <p>
+                    My certificates and additional learning achievements
+                    will be added here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="section-card">
+
+            <h2 class="section-title">
+                Contact Me
+            </h2>
+
+            <form class="contact-form">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    rows="6"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+
+            <div class="social-buttons">
+
+                <!-- এখানে পরে আপনার আসল GitHub link বসাবেন -->
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    class="github"
+                >
+                    GitHub
+                </a>
+
+
+                <!-- এখানে পরে আপনার আসল LinkedIn link বসাবেন -->
+
+                <a
+                    href="https://www.linkedin.com/in/nishita-pal-52032443b/"
+                    target="_blank"
+                    class="linkedin"
+                >
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Nishita. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
